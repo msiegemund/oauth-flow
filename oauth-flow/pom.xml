@@ -44,7 +44,7 @@
     </licenses>
     <scm>
         <connection>scm:git:git://github.com/msiegemund/oauth-flow.git</connection>
-        <developerConnection>scm:git:git://github.com:msiegemund/oauth-flow.git</developerConnection>
+        <developerConnection>scm:git:git://github.com/msiegemund/oauth-flow.git</developerConnection>
         <url>https://github.com/msiegemund/oauth-flow/tree/master</url>
     </scm>
     <build>
