@@ -14,13 +14,11 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.msiegemund</groupId>
     <artifactId>oauth-flow</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>${project.groupId}:${project.artifactId}</name>
     <description>a library which handles the process flow of OAuth 1.0a</description>
     <url>https://github.com/msiegemund/oauth-flow</url>
@@ -46,7 +44,8 @@
         <connection>scm:git:git://github.com/msiegemund/oauth-flow.git</connection>
         <developerConnection>scm:git:https://github.com/msiegemund/oauth-flow.git</developerConnection>
         <url>https://github.com/msiegemund/oauth-flow/tree/master</url>
-    </scm>
+      <tag>oauth-flow-0.0.1</tag>
+  </scm>
     <build>
         <pluginManagement>
             <plugins>
