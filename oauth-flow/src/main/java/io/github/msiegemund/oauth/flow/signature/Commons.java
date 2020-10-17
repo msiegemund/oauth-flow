@@ -16,29 +16,12 @@
 
 package io.github.msiegemund.oauth.flow.signature;
 
-import java.net.URI;
+// TODO javadoc
+final class Commons {
+    private Commons() {
+        /* hidden */
+    }
 
-import io.github.msiegemund.oauth.flow.params.HttpMethod;
-
-/**
- * A hidden intermediate interface to bundle functionalities which represent all
- * signed text signatures.
- * 
- * @author Martin Siegemund
- */
-interface SignedTextSignature extends SignatureMethod {
-    /**
-     * Retrieve the endpoint which gets addressed by the current
-     * <code>HTTP</code> request.
-     * 
-     * @return the endpoint
-     */
-    URI endpoint();
-
-    /**
-     * Retrieve the {@link HttpMethod} which gets used by the current request.
-     * 
-     * @return the method
-     */
-    HttpMethod method();
+    /** default err message */
+    static final String NOT_IMPLEMENTED = "handling not implemented";
 }

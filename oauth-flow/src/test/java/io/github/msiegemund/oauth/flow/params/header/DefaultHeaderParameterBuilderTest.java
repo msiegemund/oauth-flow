@@ -29,10 +29,6 @@ import io.github.msiegemund.oauth.flow.params.ConsumerSecret;
 import io.github.msiegemund.oauth.flow.params.HttpMethod;
 import io.github.msiegemund.oauth.flow.params.RequestToken;
 import io.github.msiegemund.oauth.flow.params.RequestTokenSecret;
-import io.github.msiegemund.oauth.flow.params.header.CallbackParameter;
-import io.github.msiegemund.oauth.flow.params.header.DefaultHeaderFieldsBuilder;
-import io.github.msiegemund.oauth.flow.params.header.OauthHeaderFieldsValues;
-import io.github.msiegemund.oauth.flow.params.header.OrderedHeaderField;
 import io.github.msiegemund.oauth.flow.params.header.fields.HeaderField;
 import io.github.msiegemund.oauth.flow.params.header.fields.HeaderFields;
 import io.github.msiegemund.oauth.flow.signature.HmacSha1Signature;
@@ -62,7 +58,7 @@ final class DefaultHeaderParameterBuilderTest {
         HeaderFields headerParameters = new DefaultHeaderFieldsBuilder(new MockOauthHeaderParameterValues(),
                 new CallbackParameter.NoCallback()).consumerKey(CONSUMER_KEY).versionInformation().token(TOKEN)
                         .tokenSecret(TOKEN_SECRET).additionalParameter(additionalParams())
-                        .build(new HmacSha1Signature.DefaultHmacSha1Signature(ENDPOINT, METHOD, CONSUMER_SECRET));
+                        .build(HmacSha1Signature.of(ENDPOINT, METHOD, CONSUMER_SECRET));
         /* check for expected values */
         LOG.info(headerParameters);
         Set<HeaderField> parameters = new HashSet<>(headerParameters.fields());

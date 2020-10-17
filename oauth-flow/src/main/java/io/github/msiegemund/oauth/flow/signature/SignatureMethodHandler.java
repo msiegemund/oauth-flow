@@ -25,8 +25,6 @@ package io.github.msiegemund.oauth.flow.signature;
  * @param <E> the type of the declared exception
  */
 public interface SignatureMethodHandler<R, E extends Exception> {
-    /** default err msg */
-    String NOT_IMPLEMENTED = "handling not implemented";
 
     /**
      * Handle {@link PlainTextSignature} in a typesafe way.
@@ -36,7 +34,7 @@ public interface SignatureMethodHandler<R, E extends Exception> {
      * @throws E if any failure occurred
      */
     default R visit(@SuppressWarnings("unused") PlainTextSignature method) throws E {
-        throw new UnsupportedOperationException(NOT_IMPLEMENTED);
+        throw new UnsupportedOperationException(Commons.NOT_IMPLEMENTED);
     }
 
     /**
@@ -47,7 +45,7 @@ public interface SignatureMethodHandler<R, E extends Exception> {
      * @throws E if any failure occurred
      */
     default R visit(@SuppressWarnings("unused") HmacSha1Signature method) throws E {
-        throw new UnsupportedOperationException(NOT_IMPLEMENTED);
+        throw new UnsupportedOperationException(Commons.NOT_IMPLEMENTED);
     }
 
     /**
@@ -58,6 +56,6 @@ public interface SignatureMethodHandler<R, E extends Exception> {
      * @throws E if any failure occurred
      */
     default R visit(@SuppressWarnings("unused") RsaSha1Signature method) throws E {
-        throw new UnsupportedOperationException(NOT_IMPLEMENTED);
+        throw new UnsupportedOperationException(Commons.NOT_IMPLEMENTED);
     }
 }

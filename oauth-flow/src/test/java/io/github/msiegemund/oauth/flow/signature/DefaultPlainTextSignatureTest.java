@@ -30,7 +30,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import io.github.msiegemund.oauth.flow.params.ConsumerSecret;
 import io.github.msiegemund.oauth.flow.params.RequestTokenSecret;
 import io.github.msiegemund.oauth.flow.params.Signature;
-import io.github.msiegemund.oauth.flow.signature.PlainTextSignature;
 import io.github.msiegemund.oauth.flow.signature.params.PlainTextSignatureParams;
 
 final class DefaultPlainTextSignatureTest {
@@ -48,7 +47,7 @@ final class DefaultPlainTextSignatureTest {
     @ParameterizedTest
     @MethodSource("args")
     void test(String tokenSecret, String expectedSig) {
-        Signature actualSignature = new PlainTextSignature.DefaultPlainTextSignature(CONSUMER_SECRET)
+        Signature actualSignature = new DefaultPlainTextSignature(CONSUMER_SECRET)
                 .signature(new PlainTextSignatureParams.DefaultPlainTextSignatureParams(
                         Optional.ofNullable(tokenSecret).map(RequestTokenSecret::of).orElse(null)));
         Assertions.assertNotNull(actualSignature);

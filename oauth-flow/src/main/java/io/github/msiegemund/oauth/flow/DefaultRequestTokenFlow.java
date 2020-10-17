@@ -48,8 +48,10 @@ final class DefaultRequestTokenFlow implements RequestTokenFlow {
         UserRequestToken uurt = this.rtfp.userObtainRequestToken().requestToken(headerParams);
         /* check result for callback success */
         if (!uurt.callback()) {
-            // TODO remove this check and remove the callback information from the interface? -> maybe user should
-            // handle this
+            /*
+             * TODO remove this check and remove the callback information from the interface? -> maybe user should
+             * handle this within the userObtainRequestToken operation
+             */
             throw new IllegalStateException("callback failure received");
         }
         /* return net flow phase */

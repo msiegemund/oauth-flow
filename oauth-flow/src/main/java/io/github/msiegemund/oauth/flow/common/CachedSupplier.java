@@ -14,9 +14,6 @@
  *  limitations under the License.
  */
 
-/**
- * 
- */
 package io.github.msiegemund.oauth.flow.common;
 
 import java.util.function.Supplier;

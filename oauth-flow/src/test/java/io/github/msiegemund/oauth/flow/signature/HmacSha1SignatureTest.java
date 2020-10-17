@@ -27,7 +27,6 @@ import io.github.msiegemund.oauth.flow.params.HttpMethod;
 import io.github.msiegemund.oauth.flow.params.RequestTokenSecret;
 import io.github.msiegemund.oauth.flow.params.Signature;
 import io.github.msiegemund.oauth.flow.params.SignatureBaseString;
-import io.github.msiegemund.oauth.flow.signature.HmacSha1Signature;
 import io.github.msiegemund.oauth.flow.signature.params.SignedTextSignatureParams;
 
 final class HmacSha1SignatureTest {
@@ -35,7 +34,7 @@ final class HmacSha1SignatureTest {
 
     @Test
     void test() {
-        HmacSha1Signature hmacSha1Signature = new HmacSha1Signature.DefaultHmacSha1Signature(
+        HmacSha1Signature hmacSha1Signature = new DefaultHmacSha1Signature(
                 URI.create("http://photos.example.net/photos"), HttpMethod.GET, ConsumerSecret.of("kd94hf93k423kf44"));
         LOG.info(hmacSha1Signature);
 

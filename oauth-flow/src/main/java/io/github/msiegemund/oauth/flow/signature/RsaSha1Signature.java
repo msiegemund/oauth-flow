@@ -48,7 +48,7 @@ public interface RsaSha1Signature extends SignedTextSignature {
      *
      * @author Martin Siegemund
      */
-    public static final class DefaultRsaSha1Signature extends DefaultSignedTextSignature implements RsaSha1Signature {
+    public static final class DefaultRsaSha1Signature extends BaseSignedTextSignature implements RsaSha1Signature {
         private static final SignatureMethodName RSA_SHA1 = SignatureMethodName.of("RSA-SHA1");
 
         /**
@@ -69,7 +69,7 @@ public interface RsaSha1Signature extends SignedTextSignature {
 
         @Override
         public Signature signature(@SuppressWarnings("unused") SignatureParams params) {
-            // TODO implement
+            // TODO implement RSA-SHA1 signature method functionality
             throw new UnsupportedOperationException("RSA-SHA1 is not yet implemented");
         }
 

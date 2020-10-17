@@ -52,7 +52,7 @@ interface OauthHeaderFieldsValues {
     static final class DefaultOauthHeaderFieldsValues implements OauthHeaderFieldsValues {
         private static final int LOWER_LIMIT = 0x61;
         private static final int UPPER_LIMIT = 0x7A;
-        private static final int NONCE_BYTES = 8;
+        private static final int NONCE_BYTE_COUNT = 8;
 
         @Override
         public String timestamp() {
@@ -62,8 +62,8 @@ interface OauthHeaderFieldsValues {
         @Override
         public String nonce() {
             ThreadLocalRandom threadLocalRandom = ThreadLocalRandom.current();
-            byte[] rnd = new byte[NONCE_BYTES];
-            for (int i = 0; i < NONCE_BYTES; ++i) {
+            byte[] rnd = new byte[NONCE_BYTE_COUNT];
+            for (int i = 0; i < NONCE_BYTE_COUNT; ++i) {
                 rnd[i] = (byte) threadLocalRandom.nextInt(LOWER_LIMIT, UPPER_LIMIT);
             }
             return URLEncoder.encode(new String(rnd, StandardCharsets.US_ASCII), StandardCharsets.US_ASCII);

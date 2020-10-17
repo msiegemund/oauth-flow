@@ -28,18 +28,6 @@ import org.apache.commons.logging.LogFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import io.github.msiegemund.oauth.flow.AccessTokenFlow;
-import io.github.msiegemund.oauth.flow.AccessTokenFlowFactory;
-import io.github.msiegemund.oauth.flow.AccessTokenFlowFactoryParam;
-import io.github.msiegemund.oauth.flow.OAuthFlow;
-import io.github.msiegemund.oauth.flow.ProtectedAccess;
-import io.github.msiegemund.oauth.flow.ProtectedAccessFlowFactory;
-import io.github.msiegemund.oauth.flow.ProtectedAccessFlowFactoryParam;
-import io.github.msiegemund.oauth.flow.RequestTokenFlow;
-import io.github.msiegemund.oauth.flow.RequestTokenFlowParam;
-import io.github.msiegemund.oauth.flow.UserAuthorizationFlow;
-import io.github.msiegemund.oauth.flow.UserAuthorizationFlowFactory;
-import io.github.msiegemund.oauth.flow.UserAuthorizationFlowFactoryParam;
 import io.github.msiegemund.oauth.flow.params.AccessToken;
 import io.github.msiegemund.oauth.flow.params.AccessTokenSecret;
 import io.github.msiegemund.oauth.flow.params.ConsumerKey;
@@ -53,7 +41,6 @@ import io.github.msiegemund.oauth.flow.params.header.fields.HeaderFields;
 import io.github.msiegemund.oauth.flow.signature.HmacSha1Signature;
 import io.github.msiegemund.oauth.flow.signature.PlainTextSignature;
 import io.github.msiegemund.oauth.flow.signature.SignatureMethod;
-import io.github.msiegemund.oauth.flow.signature.HmacSha1Signature.DefaultHmacSha1Signature;
 import io.github.msiegemund.oauth.flow.user.UserAccessTokenParameter;
 import io.github.msiegemund.oauth.flow.user.UserAuthorization;
 import io.github.msiegemund.oauth.flow.user.UserObtainAccessToken;
@@ -83,13 +70,12 @@ final class ComplexFlowTest {
     private static final URI CALLBACK = URI.create("http://printer.example.com/request_token_ready");
     private static final ConsumerKey CONSUMER_KEY = ConsumerKey.of("dpf43f3p2l4k3l03");
     private static final ConsumerSecret CONSUMER_SECRET = ConsumerSecret.of("kd94hf93k423kf44");
-    private static final DefaultHmacSha1Signature HMAC_SHA1_SIGNATURE_FOR_ACCESS_TOKEN = new HmacSha1Signature.DefaultHmacSha1Signature(
-            URI.create("https://photos.example.net/access_token"), HttpMethod.POST, CONSUMER_SECRET);
-    private static final DefaultHmacSha1Signature HMAC_SHA1_SIGNATURE_FOR_PROTECTED_RESOURCE_ACCESS = new HmacSha1Signature.DefaultHmacSha1Signature(
-            URI.create("http://photos.example.net/photos"), HttpMethod.GET, CONSUMER_SECRET);
+    private static final HmacSha1Signature HMAC_SHA1_SIGNATURE_FOR_ACCESS_TOKEN = HmacSha1Signature
+            .of(URI.create("https://photos.example.net/access_token"), HttpMethod.POST, CONSUMER_SECRET);
+    private static final HmacSha1Signature HMAC_SHA1_SIGNATURE_FOR_PROTECTED_RESOURCE_ACCESS = HmacSha1Signature
+            .of(URI.create("http://photos.example.net/photos"), HttpMethod.GET, CONSUMER_SECRET);
     private static final String EXPECTED_PLAIN_TEXT_SIGNATURE = "kd94hf93k423kf44%26";
-    private static final SignatureMethod PLAIN_TEXT_SIGNATURE = new PlainTextSignature.DefaultPlainTextSignature(
-            CONSUMER_SECRET);
+    private static final SignatureMethod PLAIN_TEXT_SIGNATURE = PlainTextSignature.of(CONSUMER_SECRET);
     private static final RequestTokenSecret REQUEST_TOKEN_SECRET = RequestTokenSecret.of("hdhd0244k9j7ao03");
     private static final RequestToken REQUEST_TOKEN = RequestToken.of("hh5s93j4hdidpola");
     private static final VerificationCode VERIFICATION_CODE = VerificationCode.of("hfdp7dh39dks9884");
