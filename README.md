@@ -9,16 +9,16 @@ The architecture of the library is build in an immutable fashion. Therefore it c
 ## Usage
 
 ### Full flow
-To create the full flows process entry point, you need to create an instance of **de.msi.oauth.flow.OAuthFlow**. To to so, an instance of **RequestTokenFlowParam** is required. Use **de.msi.oauth.flow.RequestTokenFlowParam.RequestTokenFlowParamBuilder** to create a parameter instance.
+To create the full flows process entry point, you need to create an instance of **io.github.msiegemund.oauth.flow.OAuthFlow**. To to so, an instance of **RequestTokenFlowParam** is required. Use **io.github.msiegemund.oauth.flow.RequestTokenFlowParam.RequestTokenFlowParamBuilder** to create a parameter instance.
 
 An process flow example can be seen at [ComplexFlowTest](https://github.com/msiegemund/oauth-flow/blob/master/oauth-flow/src/test/java/de/msi/oauth/flow/ComplexFlowTest.java). This Unit test runs a whole flow by using the official documentations examples.
 
 ### Intermediate flow
 Aditionally, it is possible to enter the flow at several process relevant points. The intermediate entry points are
 
-* de.msi.oauth.flow.UserAuthorizationIntermediateFactory
-* de.msi.oauth.flow.AccessTokenIntermediateFactory
-* de.msi.oauth.flow.ProtectedAccessIntermediateFactory
+* io.github.msiegemund.oauth.flow.UserAuthorizationIntermediateFactory
+* io.github.msiegemund.oauth.flow.AccessTokenIntermediateFactory
+* io.github.msiegemund.oauth.flow.ProtectedAccessIntermediateFactory
 
 This comes in handy if the process has not been able to complete or some mandatory authentication information is already present.
 
