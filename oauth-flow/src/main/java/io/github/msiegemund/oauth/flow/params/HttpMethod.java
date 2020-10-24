@@ -33,7 +33,11 @@ public enum HttpMethod implements Identifiable<String> {
     /**
      * Represents the <code>HTTP</code> method <code>POST</code>.
      */
-    POST("POST");
+    POST("POST"),
+    /**
+     * Represents the <code>HTTP</code> method <code>PUT</code>.
+     */
+    PUT("PUT");
 
     private final String identifier;
 
