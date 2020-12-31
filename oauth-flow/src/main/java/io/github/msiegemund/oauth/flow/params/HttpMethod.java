@@ -37,7 +37,11 @@ public enum HttpMethod implements Identifiable<String> {
     /**
      * Represents the <code>HTTP</code> method <code>PUT</code>.
      */
-    PUT("PUT");
+    PUT("PUT"),
+    /**
+     * Represents the <code>HTTP</code> method <code>DELETE</code>.
+     */
+    DELETE("DELETE");
 
     private final String identifier;
 
